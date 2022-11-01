@@ -50,3 +50,4 @@ for i in range(20):
         dice_outcome = random.choice(dice)
         print("Количество шагов:", dice_outcome, "\n")
         t.fd(20*dice_outcome)
+turtle.mainloop()
