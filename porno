@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="text-align:center; font-weight: bold; font-style: italic; color: rgb(51, 164, 172);">Чупрова Елизавета Алексеевна</h1>
+<p class="aligncenter">
+    <img src="img/1a5aa41e5f1cf8985a2d174a08d0c9c4.jpg">
+</p>
+<h2 style="font-weight: lighter; font-style:italic; color:rgb(175, 35, 35)">Социальный статус</h2>
+<ul>
+    <li>Студентка РКСИ</li>
+    <li>Подросток</li>
+</ul>
+<TABLE style="margin: auto; border: 1px solid rgb(255, 240, 25); width:50%; height: 300px;">
+    <caption style="font-weight: bold; font-size: larger; color: rgb(245, 255, 108); background-color: rgb(172, 161, 233);">Мое образование</caption>
+    <TR style="height: 50px; width: 30%; background-color: rgb(187, 106, 211);">
+        <TH>Полученное</TH>
+        <TH>Получаемое</TH>
+        <TH>Планируемое</TH>
+    </TR>
+    <TR   style="background-color: rgb(226, 124, 124); height: 100px; width: 200px;">
+        <TD style="text-align: center;">МБОУ СОШ №2</TD>
+        <TD style="text-align: center;">СПО РКСИ</TD>
+        <TD style="text-align: center;">Университет Хонгик</TD>
+    </TR>
+</TABLE>
+</body>
+<style>
+    img {border-radius: 30px;}
+    .aligncenter {text-align: center;}
+    html {background-color: rgb(230, 193, 255);}
+    ul {font-style: italic; 
+        list-style-type: "★   "; 
+        color: rgb(121, 22, 22);
+        font-size: larger;
+        }
+    th {color: rgb(240, 240, 101);
+        font-style: italic;
+        font-size: large;
+       }
+    td {color: rgb(66, 117, 36);
+        font-style: italic;
+        font-size: large;
+        font-weight: bold;
+        }
+</style>
+</html>
