@@ -1,0 +1,50 @@
+import sqlite3 as sq
+from info import form
+from info import hospital_sheet
+with sq.connect('zarplata.db') as con: 
+    cur = con.cursor() 
+if cur.execute("""SELECT * FROM form""").fetchall() == []:
+    cur.execute("""CREATE TABLE IF NOT EXISTS form (
+         id_sotr INTEGER PRIMARY KEY, 
+         name VARCHAR NOT NULL, 
+         surname VARCHAR NOT NULL,
+         dirthay_data DATE,
+         sex VARCHAR NOT NULL, 
+         date_of_hiring DATE,
+         post VARCHAR NOT NULL,
+         department VARCHAR NOT NULL,
+         base_rate DECIMAL)""")
+    cur.executemany("INSERT INTO form VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)", form)
+else:
+    pass
+    
+with sq.connect('zarplata.db') as con: 
+    cur = con.cursor() 
+if cur.execute("""SELECT * FROM hospital_sheet""").fetchall() == []:
+     cur.execute("""CREATE TABLE IF NOT EXISTS hospital_sheet (
+         id_sheet INTEGER PRIMARY KEY,
+         id_sotr INTEGER, 
+         beginning_data DATE,
+         ending_data DATE,
+         reason VARCHAR NOT NULL, 
+         diagnosis VARCHAR NOT NULL,
+         payment BOOLEAN,
+         FOREIGN KEY (id_sotr) REFERENCES form(id_sotr) ON DELETE CASCADE ON UPDATE CASCADE)""")
+     cur.executemany("INSERT INTO hospital_sheet VALUES (?, ?, ?, ?, ?, ?, ?)", hospital_sheet)
+else:
+     pass
+
+with sq.connect('zarplata.db') as con:
+    cur = con.cursor()
+    #1. Вывести список всех сотрудников и их должностей
+    print(cur.execute("""SELECT name, surname, post FROM form""").fetchall())
+    #2. Вывести список всех сотрудников и их базовых ставок
+    print(cur.execute("""SELECT name, surname, base_rate FROM form""").fetchall())
+    #3. Вывести список всех сотрудников, работающих в отделе "IT"
+    print(cur.execute("""SELECT name, surname FROM form WHERE department='IT'""").fetchall())
+    #4. Вывести список всех сотрудников, принятых на работу после 1 января 2022 года
+    print(cur.execute("""SELECT name, surname FROM form WHERE date_of_hiring>'2022-01-01'""").fetchall())
+    #5. Вывести список всех больничных листов, выписанных сотруднику с id = 42
+    print(cur.execute("""SELECT * FROM hospital_sheet WHERE id_sotr=42""").fetchall())
+    #6. Вывести список всех больничных листов, оплаченных компанией
+    print(cur.execute("""SELECT * FROM hospital_sheet WHERE payment=True""").fetchall())
