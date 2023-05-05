@@ -1,0 +1,112 @@
+class Point:
+    color = "red"
+    circle = 2
+# print(Point.color)
+# print(Point.circle)
+# print(Point.__dict__)
+
+pointOne = Point()
+# # print(pointOne.circle)
+# # print(pointOne.__dict__)
+
+pointTwo = Point()
+# print(pointTwo.color)
+# print(pointTwo.__dict__)
+
+Point.circle = 3
+# print(Point.circle)
+# print(pointOne.circle)
+
+# pointOne.color = "green"
+# print(pointOne.color)
+# print(pointTwo.color)
+# Point.hiddens = False
+# Point.inher = True
+# print(Point.__dict__)
+#print(pointOne.hiddens)
+#print(pointTwo.inher)
+
+# print(pointOne.__dict__)
+# print(pointTwo.__dict__)
+
+# pointOne.like = True
+# print(pointOne.__dict__)
+
+#del Point.hiddens
+#print(Point.__dict__)
+
+#print(getattr(pointTwo, 'hiddens', False))
+#print(getattr(pointTwo, 'inher', False))
+
+#print(hasattr(Point, 'circle'))
+
+#print(getattr(pointTwo, 'inher', False))
+#del Point.inher
+#print(Point.__dict__)
+
+# pointOne.circle = 5
+# print(pointOne.circle)
+
+# del pointOne.circle
+# print(Point.hiddens == False)
+# print(Point.inher == True)
+
+# def set_coords(self, x=0, y=0):
+#     print('Вызов метода set_coords для' + str(self))
+#     self.x = x
+#     self.y = y
+
+# pointOne = Point()
+# pointOne.set_coords(10, 20)
+# print(pointOne.__dict__)
+
+# def __init__(self, x=0, y=0):
+#     print("Вызов метода для" + str(self))
+#     self.x = x
+#     self.y = y
+
+# def __del__(self):
+#     print("Удаление экземпляра" + str(self))
+
+# def get_coords(self):
+#     print("вызов метода" + str(self))
+#     return self.x, self.y
+
+# class Vector:
+#     MIN_COORD = 0
+#     MAX_COORD = 100
+
+# @classmethod
+# def validate(cls, arg):
+#     return cls.MIN_COORD <= arg <= cls.MAX_COORD
+
+# def __init__(self, x, y):
+#     self.x = self.y = 0
+#     if self.validate(x) and self.validate(y):
+#         self.x = x
+#         self.y = y
+    
+#     print(self.norm2(self.x, self.y))
+
+# def get_coords(self):
+#     return self.x, self.y
+
+# @staticmethod
+# def norm2(x, y):
+#     return x*x + y*y
+
+# vectorOne = Vector(10, 20)
+# res = vectorOne.get_coords()
+# print(res)
+
+# print(Vector.validate(5))
+# print(Vector.norm2(5, 6))
+
+class Person:
+    name = "Liza"
+    surname = "Chuprova"
+
+def __init__(self, n, s, c=1):
+    print("Вызов метода для" + str(self))
+    self.name = n
+    self.surname = s
